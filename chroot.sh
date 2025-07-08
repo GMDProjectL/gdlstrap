@@ -15,12 +15,15 @@ ask_gui_stack() {
     read -p "Does your Live ISO have a desktop environment (a graphical interface you can click on)? [y/n]: " choice
     if [[ $choice == "n" ]]; then
         reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+        
         pacman-key --init
         pacman-key --populate archlinux
-        pacman -Sy xorg xorg-xinit xterm xf86-input-libinput xf86-video-vesa --noconfirm --needed --cachedir /mnt/ramdisk/pkg
+        pacman -Sy xorg xorg-xinit xterm xf86-input-libinput xf86-video-vesa --noconfirm --needed
+        
         mkdir -p /root
         echo "exec electron34 http://localhost:4173 --no-sandbox" > /root/.xinitrc
         echo -e "\e[32mWaiting for frontend to initialize...\e[0m"
+        
         wait_for_frontend_x
     elif [[ $choice == "y" ]]; then
         echo -e "\e[32mWaiting for frontend to initialize...\e[0m"
