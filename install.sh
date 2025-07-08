@@ -48,7 +48,7 @@ entry() {
     set -e
     check_root
 
-    echo -e "\r\e[32mProject GDL Installer Tool"
+    echo -e "\r\e[32mGDLStrap"
     echo -e "\e[31mWARNING!\e[0m This tool is meant for Live ISO use only."
     echo -e "Running it elsewhere may cause damage — use at your own risk.\n"
 
