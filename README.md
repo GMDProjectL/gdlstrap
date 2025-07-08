@@ -1,6 +1,6 @@
 # GDLStrap
 
-A script that sets up Project GDL Installer
+A script that sets up Project GDL Installer on every arch-based Live OS
 
 ## Usage
 ```bash
