@@ -15,11 +15,11 @@ install() {
     mkdir -p /mnt/ramdisk/usr/bin
     echo -e "#!/bin/sh\necho \"yes\" > /reboot-flag" > /mnt/ramdisk/usr/bin/reboot
     chmod +x /mnt/ramdisk/usr/bin/reboot
-    bash -c "$(curl -s https://raw.githubusercontent.com/sh1ne-dev/tmp/refs/heads/main/reboot_poll.sh)" > /dev/null 2>&1 &
+    bash -c "$(curl -s https://raw.githubusercontent.com/GMDProjectL/gdlstrap/refs/heads/main/reboot_poll.sh)" > /dev/null 2>&1 &
 
     echo -e "\e[32mFetching second part of tool...\e[0m"
     
-    curl -s https://raw.githubusercontent.com/sh1ne-dev/tmp/refs/heads/main/chroot.sh -o /mnt/ramdisk/chroot.sh
+    curl -s https://raw.githubusercontent.com/GMDProjectL/gdlstrap/refs/heads/main/chroot.sh -o /mnt/ramdisk/chroot.sh
     arch-chroot /mnt/ramdisk /bin/bash ./chroot.sh
 }
 
